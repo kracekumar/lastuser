@@ -36,7 +36,7 @@ class RegisterClientForm(wtf.Form):
               validators=[wtf.Required(), wtf.URL(require_tld = False)],\
         description="Website where users may access this application")
     redirect_uri = wtf.html5.URLField('Redirect URI', \
-    validators=[wtf.Required(), wtf.URL(require_tld = False)],\
+    validators=[wtf.Optional(), wtf.URL(require_tld = False)],\
         description="OAuth2 Redirect URI")
     notification_uri = wtf.html5.URLField('Notification URI',\
         validators=[wtf.Optional(), wtf.URL(require_tld = False)],\
