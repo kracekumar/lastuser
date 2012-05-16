@@ -32,24 +32,19 @@ class RegisterClientForm(wtf.Form):
     client_owner = wtf.RadioField('Owner', validators=[wtf.Required()],
         description="User or organization that owns this application. Changing the owner "
             "will revoke all currently assigned permissions for this app")
-    website = wtf.html5.URLField('Application website', \
-              validators=[wtf.Required(), wtf.URL(require_tld = False)],\
+    website = wtf.html5.URLField('Application website', validators=[wtf.Required(), wtf.URL(require_tld = False)],
         description="Website where users may access this application")
-    redirect_uri = wtf.html5.URLField('Redirect URI', \
-    validators=[wtf.Optional(), wtf.URL(require_tld = False)],\
+    redirect_uri = wtf.html5.URLField('Redirect URI', validators=[wtf.Optional(), wtf.URL(require_tld = False)],
         description="OAuth2 Redirect URI")
-    notification_uri = wtf.html5.URLField('Notification URI',\
-        validators=[wtf.Optional(), wtf.URL(require_tld = False)],\
+    notification_uri = wtf.html5.URLField('Notification URI', validators=[wtf.Optional(), wtf.URL(require_tld = False)],
         description="LastUser resource provider Notification URI. When another application requests access to "
             "resources provided by this app, LastUser will post a notice to this URI with a copy of the access "
             "token that was provided to the other application. Other notices may be posted too "
             "(not yet implemented)")
-    iframe_uri = wtf.html5.URLField('IFrame URI', \
-        validators=[wtf.Optional(), wtf.URL(require_tld = False)],\
+    iframe_uri = wtf.html5.URLField('IFrame URI', validators=[wtf.Optional(), wtf.URL(require_tld = False)],
         description="Front-end notifications URL. This is loaded in a hidden iframe to notify the app that the "
             "user updated their profile in some way (not yet implemented)")
-    resource_uri = wtf.html5.URLField('Resource URI', \
-        validators=[wtf.Optional(), wtf.URL(require_tld = False)],
+    resource_uri = wtf.html5.URLField('Resource URI', validators=[wtf.Optional(), wtf.URL(require_tld = False)],
         description="URI at which this application provides resources as per the LastUser Resource API "
         "(not yet implemented)")
     allow_any_login = wtf.BooleanField('Allow anyone to login', default=True,
